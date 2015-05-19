@@ -4,12 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 
-    <parent>
-        <groupId>qunar.common</groupId>
-        <artifactId>qunar-supom-generic</artifactId>
-        <version>1.3.3</version>
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vishcn</groupId>
@@ -145,12 +139,13 @@
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
-            <version>1.9.13</version>
+            <version>${org.codehaus.jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
+            <version>${org.codehaus.jackson.version}</version>
         </dependency>
 
         <!-- spring -->
@@ -246,6 +241,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
+            <version>${org.mybatis.mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.generator</groupId>
@@ -255,11 +251,14 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.21</version>
+            <scope>runtime</scope>
         </dependency>
         <!-- commons-dbcp -->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
 
 
