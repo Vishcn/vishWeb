@@ -9,10 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web</artifactId>
+    <artifactId>vishWeb-web</artifactId>
+
 
     <packaging>war</packaging>
 
+
+    <dependencies>
+        <!--加入service依赖-->
+        <dependency>
+            <groupId>com.vishcn</groupId>
+            <artifactId>vishWeb-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 
     <build>

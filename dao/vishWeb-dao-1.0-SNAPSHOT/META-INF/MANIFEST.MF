@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Built-By: vish23n
+Build-Jdk: 1.7.0_80-ea
+Created-By: Apache Maven 3.2.3
+Archiver-Version: Plexus Archiver
+
