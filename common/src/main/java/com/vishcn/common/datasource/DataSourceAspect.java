@@ -23,14 +23,10 @@ public class DataSourceAspect {
     public void pointCut() {
     }
 
-    ;
-
     public void before(JoinPoint point) {
         Object traget = point.getTarget();
         String method = point.getSignature().getName();
         Class<?> clazz = traget.getClass();
-        Thread t = Thread.currentThread();
-        String a = HandleDataSource.getDataSource();
         Class<?>[] parameterTypes = ((MethodSignature) point.getSignature()).getMethod().getParameterTypes();
         try {
             Method m = clazz.getMethod(method, parameterTypes);
@@ -46,7 +42,6 @@ public class DataSourceAspect {
                 HandleDataSource.setDataSource(data.value());
                 return;
             }
-            HandleDataSource.setDataSource(null);
         } catch (Exception e) {
             e.printStackTrace();
         }

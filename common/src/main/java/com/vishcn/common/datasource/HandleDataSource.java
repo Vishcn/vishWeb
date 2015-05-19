@@ -19,6 +19,9 @@ public class HandleDataSource {
     }
 
     public static String getDataSource() {
-        return holder.get();
+        String data = holder.get();
+        //数据源设置取走后就清除
+        holder.remove();
+        return data;
     }
 }
