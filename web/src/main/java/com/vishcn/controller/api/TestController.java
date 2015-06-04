@@ -1,14 +1,18 @@
 package com.vishcn.controller.api;
 
+import com.google.common.collect.Maps;
 import com.vishcn.controller.api.param.TestParam;
 import com.vishcn.dao.test.Bean.TestBean;
 import com.vishcn.service.test.ITest;
+import org.apache.commons.beanutils.DynaBean;
+import org.apache.commons.beanutils.LazyDynaBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p/>
@@ -55,4 +59,66 @@ public class TestController {
         System.out.println("TEST");
         return testImpl.queryTest();
     }
+
+    @RequestMapping("test")
+    @ResponseBody
+    public Object queryDynaBeanTest(TestParam testParam){
+        System.out.println("TEST");
+        DynaBean db = new LazyDynaBean();
+        db.set("t","a");
+        db.set("tr","ar");
+        db.set("tt","at");
+        Map<String , String> mp = Maps.newHashMap();
+        mp.put("t", "a");
+        mp.put("tr", "ar");
+        mp.put("tt", "at");
+        TestBeans t = new TestBeans();
+        t.setT("a");
+        t.setRr("ar");
+        t.setTr("at");
+        int id = testParam.getId();
+        if (id == 1) {
+            return db;
+        }
+        else if (id == 2) {
+            return mp;
+        }
+        else {
+            return t;
+        }
+    }
+
+    public class TestBeans {
+
+        private String t;
+
+        private String tr;
+
+        private String rr;
+
+        public String getT() {
+            return t;
+        }
+
+        public void setT(String t) {
+            this.t = t;
+        }
+
+        public String getTr() {
+            return tr;
+        }
+
+        public void setTr(String tr) {
+            this.tr = tr;
+        }
+
+        public String getRr() {
+            return rr;
+        }
+
+        public void setRr(String rr) {
+            this.rr = rr;
+        }
+    }
+
 }
